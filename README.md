@@ -4,9 +4,8 @@ Simple budget app for students to track income and expenses.
 
 ## 👥 Team
 
-* Person 1: Home page (overview)
-* Person 2: AddExpense page (add income/expense)
-* Person 3: History page (list of transactions)
+* Person 1: Home page (overview, balance, latest transactions)
+* Person 2: AddExpense page (form to add income/expenses)
 
 ## 🚀 How to run
 
@@ -24,8 +23,7 @@ Run the following commands in terminal:
 4. Start app:
    npm run dev
 
-5. Open in browser:
-   http://localhost
+5. Open in browser
 
 ## 📌 Status
 
