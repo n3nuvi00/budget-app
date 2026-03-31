@@ -1,3 +1,13 @@
+import "../styles/Home.css";
+
 export default function Home() {
-  return <h1>Home</h1>;
+  return (
+    <div>
+      <h1>Home</h1>
+
+      <div>
+        Laatikko
+      </div>
+    </div>
+  );
 }
