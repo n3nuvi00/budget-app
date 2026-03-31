@@ -1,0 +1,71 @@
+body{
+  background:#f4f6f8;
+}
+
+.container2{
+  width:400px;
+  margin:60px auto;
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+}
+
+h1{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.toggle{
+  display:flex;
+  margin-bottom:20px;
+}
+
+.toggle button{
+  flex:1;
+  padding:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.income{
+  background:#ddd;
+}
+
+.expense{
+  background:#ddd;
+}
+
+.income.active{
+  background:#2ecc71;
+  color:white;
+}
+
+.expense.active{
+  background:#e74c3c;
+  color:white;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+input, select{
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+.submit{
+  margin-top:10px;
+  padding:12px;
+  background:#3498db;
+  border:none;
+  color:white;
+  font-weight:bold;
+  border-radius:5px;
+  cursor:pointer;
+}
