@@ -58,4 +58,20 @@
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+.transaction-row {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
 
+.transaction-row button {
+  margin-top: 6px;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #e74c3c;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}

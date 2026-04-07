@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../styles/Home.css";
 
-export default function Home({ transactions }) {
+export default function Home({ transactions, deleteTransaction }) {
   const navigate = useNavigate();
 
   const balance = transactions.reduce((acc, t) => acc + t.amount, 0);
@@ -19,14 +19,19 @@ export default function Home({ transactions }) {
     <div className="container">
       <div className="sidebar">
         <h3>Viimeisimmät</h3>
-        {transactions.slice(-5).reverse().map(t => (
-          <div key={t.id} className="transaction">
-            <span>{t.text}</span>
-            <span className={t.amount > 0 ? "plus" : "minus"}>
-              {t.amount}€
-            </span>
-          </div>
-        ))}
+        {transactions.slice(-5).reverse().map((t) => (
+  <div key={t.id} className="transaction-row">
+    <div className="transaction">
+      <span>{t.text}</span>
+      <span className={t.amount > 0 ? "plus" : "minus"}>
+        {t.amount}€
+      </span>
+    </div>
+    <button onClick={() => deleteTransaction(t.id)}>
+      Delete
+    </button>
+  </div>
+))}
       </div>
 
       <div className="main">
