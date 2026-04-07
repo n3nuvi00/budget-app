@@ -17,8 +17,10 @@ export default function Home({ transactions }) {
 
   return (
     <div className="container">
+
+      {/*Sidebar on the left*/}
       <div className="sidebar">
-        <h3>Viimeisimmät</h3>
+        <h3>Latest transactions:</h3>
         {transactions.slice(-5).reverse().map(t => (
           <div key={t.id} className="transaction">
             <span>{t.text}</span>
@@ -29,12 +31,13 @@ export default function Home({ transactions }) {
         ))}
       </div>
 
+        {/*Middle variables*/}
       <div className="main">
-        <h2>Saldo</h2>
+        <h2>Current amount</h2>
         <h1>{balance}€</h1>
 
-        <p className="plus">Tulot: {income}€</p>
-        <p className="minus">Menot: {expense}€</p>
+        <p className="plus">Income: {income}€</p>
+        <p className="minus">Expenses: {expense}€</p>
       </div>
 
       <button className="add-button" onClick={() => navigate("/add")}>
