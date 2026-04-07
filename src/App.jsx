@@ -12,12 +12,21 @@ export default function App() {
     setTransactions([...transactions, transaction]);
   };
 
+  const deleteTransaction = (id) => {
+  setTransactions(transactions.filter((t) => t.id !== id));
+};
+
   return (
     <Router>
       <Routes>
         <Route
           path="/"
-          element={<Home transactions={transactions} />}
+          element={
+  <Home
+    transactions={transactions}
+    deleteTransaction={deleteTransaction}
+  />
+}
         />
         <Route
           path="/add"

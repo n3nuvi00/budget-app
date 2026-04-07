@@ -30,8 +30,8 @@ function AddExpense({ addTransaction }) {
       type
     };
 
-    addTransaction(transaction);   // 🔥 TÄRKEIN RIVI
-    navigate("/");                // 🔥 takaisin etusivulle
+    addTransaction(transaction);
+    navigate("/");
   };
 
   return (
