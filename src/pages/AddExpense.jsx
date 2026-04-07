@@ -12,8 +12,8 @@ function AddExpense({ addTransaction }) {
   const [description, setDescription] = useState("");
 
   const categories = {
-    expense: ["Food", "Transport", "Bills", "Entertainment"],
-    income: ["Salary", "Gift", "Other"]
+    expense: ["🍔Food", "🚗Transport", "📄Bills", "🎮Entertainment"],
+    income: ["💰Salary", "🎁Gift", "📦Other"]
   };
 
   const handleSubmit = (e) => {
