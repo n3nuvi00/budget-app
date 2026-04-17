@@ -1,20 +1,26 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Home from "./pages/Home";
 import AddExpense from "./pages/AddExpense";
 
-
 export default function App() {
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState(() => {
+    const saved = localStorage.getItem("transactions");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
 
   const addTransaction = (transaction) => {
     setTransactions([...transactions, transaction]);
   };
 
   const deleteTransaction = (id) => {
-  setTransactions(transactions.filter((t) => t.id !== id));
-};
+    setTransactions(transactions.filter((t) => t.id !== id));
+  };
 
   return (
     <Router>
@@ -22,11 +28,11 @@ export default function App() {
         <Route
           path="/"
           element={
-  <Home
-    transactions={transactions}
-    deleteTransaction={deleteTransaction}
-  />
-}
+            <Home
+              transactions={transactions}
+              deleteTransaction={deleteTransaction}
+            />
+          }
         />
         <Route
           path="/add"
