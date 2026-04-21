@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Home from "./pages/Home";
 import AddExpense from "./pages/AddExpense";
-
+import Tracker from "./pages/Tracker";
 
 export default function App() {
   const [transactions, setTransactions] = useState([]);
@@ -13,8 +13,8 @@ export default function App() {
   };
 
   const deleteTransaction = (id) => {
-  setTransactions(transactions.filter((t) => t.id !== id));
-};
+    setTransactions(transactions.filter((t) => t.id !== id));
+  };
 
   return (
     <Router>
@@ -22,15 +22,21 @@ export default function App() {
         <Route
           path="/"
           element={
-  <Home
-    transactions={transactions}
-    deleteTransaction={deleteTransaction}
-  />
-}
+            <Home
+              transactions={transactions}
+              deleteTransaction={deleteTransaction}
+            />
+          }
         />
+
         <Route
           path="/add"
           element={<AddExpense addTransaction={addTransaction} />}
+        />
+
+        <Route
+          path="/tracker"
+          element={<Tracker transactions={transactions} />}
         />
       </Routes>
     </Router>

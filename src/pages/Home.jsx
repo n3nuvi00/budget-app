@@ -1,5 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/Home.css";
+
 import coin1 from "../assets/Coins_1.png";
 import coin2 from "../assets/Coins_2.png";
 import coin3 from "../assets/Coins_3.png";
@@ -36,7 +37,7 @@ export default function Home({ transactions, deleteTransaction }) {
     if (balance >= 2) return coin2;
     if (balance >= 1) return coin1;
 
-    return coin1; // fallback jos saldo 0 tai negatiivinen
+    return coin1;
   };
 
   return (
@@ -48,6 +49,7 @@ export default function Home({ transactions, deleteTransaction }) {
         {transactions.slice(-5).reverse().map((t) => (
           <div key={t.id} className="transaction">
             <span>{t.text}</span>
+
             <span className={t.amount > 0 ? "plus" : "minus"}>
               {t.amount}€
             </span>
@@ -59,10 +61,11 @@ export default function Home({ transactions, deleteTransaction }) {
         ))}
       </div>
 
-      {/* Center stuff */}
+      {/* Center */}
       <div className="main">
         <h2>Current amount:</h2>
         <h1>{balance}€</h1>
+
         <img
           src={getCoinImage(balance)}
           alt="coin stack"
@@ -70,7 +73,7 @@ export default function Home({ transactions, deleteTransaction }) {
         />
       </div>
 
-      {/* Right side stuff */}
+      {/* Right side */}
       <div className="right-panel">
         <div className="summary-box">
           <h3>Current month:</h3>
@@ -85,9 +88,16 @@ export default function Home({ transactions, deleteTransaction }) {
             <span className="minus">{expense}€</span>
           </div>
         </div>
+
+        <Link to="/tracker" className="tracker-button">
+          Open Goal Tracker
+        </Link>
       </div>
 
-      <button className="add-button" onClick={() => navigate("/add")}>
+      <button
+        className="add-button"
+        onClick={() => navigate("/add")}
+      >
         +
       </button>
     </div>
