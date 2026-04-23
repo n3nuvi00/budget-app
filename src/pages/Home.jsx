@@ -42,8 +42,7 @@ export default function Home({ transactions, deleteTransaction }) {
     if (balance >= 3) return coin3;
     if (balance >= 2) return coin2;
     if (balance >= 1) return coin1;
-
-    return coin1;
+    if (balance <= 0) return null;
   };
 
   return (
@@ -97,12 +96,13 @@ export default function Home({ transactions, deleteTransaction }) {
       <div className="main">
         <h2>Current amount:</h2>
         <h1>{balance}€</h1>
-
-        <img
-          src={getCoinImage(balance)}
-          alt="coin stack"
-          className="coin-image"
-        />
+        {balance > 0 && (
+          <img 
+            src={getCoinImage(balance)} 
+            alt="coin stack" 
+            className="coin-image"
+          />
+        )}
       </div>
 
       {/* Right side */}
