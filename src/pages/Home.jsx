@@ -25,6 +25,12 @@ export default function Home({ transactions, deleteTransaction }) {
     .filter((t) => t.amount < 0)
     .reduce((acc, t) => acc + t.amount, 0);
 
+  const goal = Number(localStorage.getItem("budget_goal_value")) || 0;
+
+  const progress = goal > 0 
+  ? Math.min((balance / goal) * 100, 100) 
+  : 0;
+
   const getCoinImage = (balance) => {
     if (balance >= 10000) return coin10000;
     if (balance >= 1000) return coin1000;
@@ -60,7 +66,33 @@ export default function Home({ transactions, deleteTransaction }) {
           </div>
         ))}
       </div>
+      {/* XP Bar */}
+      <div className="top-right-box">
+        {goal === 0 ? (
+          <button 
+            className="goal-button"
+            onClick={() => navigate("/tracker")}
+          >
+            Here you can set goals
+          </button>
+        ) : (
+          <div 
+            className="xp-bar-wrapper"
+            onClick={() => navigate("/tracker")}
+          >
+            <div className="xp-bar-container">
+              <div
+                className="xp-bar-fill"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
 
+            <div className="xp-bar-text">
+              {balance}€ / {goal}€
+            </div>
+          </div>
+        )}
+      </div>
       {/* Center */}
       <div className="main">
         <h2>Current amount:</h2>
@@ -88,10 +120,6 @@ export default function Home({ transactions, deleteTransaction }) {
             <span className="minus">{expense}€</span>
           </div>
         </div>
-
-        <Link to="/tracker" className="tracker-button">
-          Open Goal Tracker
-        </Link>
       </div>
 
       <button
