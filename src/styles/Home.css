@@ -158,3 +158,19 @@
   text-align: center;
   margin-top: 5px;
 }
+
+.clear-button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #e74c3c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  background: #c0392b;
+}

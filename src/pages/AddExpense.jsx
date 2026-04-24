@@ -91,10 +91,10 @@ function AddExpense({ addTransaction }) {
         </button>
       </form>
 
-      <button onClick={() => navigate("/")}>
-        Back
+      <button className="back-button" onClick={() => navigate("/")}>
+      Back
       </button>
-    </div>
+      </div>
   );
 }
 

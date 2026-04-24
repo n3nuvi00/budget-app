@@ -12,7 +12,7 @@ import coin250 from "../assets/Coins_250.png";
 import coin1000 from "../assets/Coins_1000.png";
 import coin10000 from "../assets/Coins_10000.png";
 
-export default function Home({ transactions, deleteTransaction }) {
+export default function Home({ transactions, deleteTransaction, clearAllTransactions }) {
   const navigate = useNavigate();
 
   const balance = transactions.reduce((acc, t) => acc + t.amount, 0);
@@ -64,6 +64,12 @@ export default function Home({ transactions, deleteTransaction }) {
             </button>
           </div>
         ))}
+
+        {transactions.length > 0 && (
+        <button className="clear-button" onClick={clearAllTransactions}>
+        Clear All
+        </button>
+        )} 
       </div>
       {/* XP Bar */}
       <div className="top-right-box">

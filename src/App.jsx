@@ -23,16 +23,24 @@ export default function App() {
     setTransactions(transactions.filter((t) => t.id !== id));
   };
 
+  const clearAllTransactions = () => {
+  if (window.confirm("Are you sure you want to delete all transactions?")) {
+    localStorage.removeItem("transactions");
+    setTransactions([]);
+  }
+  };
+
   return (
     <Router>
       <Routes>
         <Route
           path="/"
           element={
-            <Home
-              transactions={transactions}
-              deleteTransaction={deleteTransaction}
-            />
+           <Home
+            transactions={transactions}
+            deleteTransaction={deleteTransaction}
+            clearAllTransactions={clearAllTransactions}
+          />
           }
         />
 
