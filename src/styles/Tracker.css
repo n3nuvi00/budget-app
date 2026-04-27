@@ -89,9 +89,13 @@
   display: block;
   text-align: center;
   padding: 12px;
-  background: #22c55e;
-  color: black;
+  background: #4caf50;
+  color: White;
   border-radius: 12px;
   text-decoration: none;
   font-weight: bold;
+}
+
+.back-button:hover {
+background: #377e39
 }

@@ -114,7 +114,7 @@ export default function Home({ transactions, deleteTransaction, clearAllTransact
       {/* Right side */}
       <div className="right-panel">
         <div className="summary-box">
-          <h3>Current month:</h3>
+          <h3>Current session:</h3>
 
           <div className="summary-row">
             <span>Income</span>
@@ -128,12 +128,16 @@ export default function Home({ transactions, deleteTransaction, clearAllTransact
         </div>
       </div>
 
-      <button
-        className="add-button"
-        onClick={() => navigate("/add")}
-      >
-        +
-      </button>
+      <div className="add-wrapper">
+        <span className="add-text">Add transactions 👉</span>
+        <button
+          className="add-button"
+          onClick={() => navigate("/add")}
+        >
+          +
+        </button>
+
+      </div>
     </div>
   );
 }
