@@ -1,26 +1,37 @@
+{/* Imports */}
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/AddExpense.css";
 
+
 function AddExpense({ addTransaction }) {
+
+{/* Navigation back to home screen after adding a transaction */}
   const navigate = useNavigate();
 
+
+{/* Form inputs */}
   const [type, setType] = useState("expense");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
 
+
+{/* Category options */}
   const categories = {
     expense: ["🍔Food", "🚗Transport", "📄Bills", "🎮Entertainment", "📦Other"],
     income: ["💰Salary", "🎁Gift", "📦Other"]
   };
 
+{/* From submit */}
   const handleSubmit = (e) => {
     e.preventDefault();
 
+{/* Basic validation */}
     if (!amount || !category) return;
 
+{/* Create transaction */}
     const transaction = {
       id: Date.now(),
       text: description || category,
@@ -30,14 +41,19 @@ function AddExpense({ addTransaction }) {
       type
     };
 
+{/* Pass data to parent component */}
     addTransaction(transaction);
+
+{/* Redirect back to home page */}
     navigate("/");
   };
+
 
   return (
     <div className="container2">
       <h1>Add Transaction</h1>
 
+{/* Toggle between income and expense */}
       <div className="toggle">
         <button
           className={type === "income" ? "income active" : "income"}
@@ -54,7 +70,10 @@ function AddExpense({ addTransaction }) {
         </button>
       </div>
 
+{/* Form */}
       <form onSubmit={handleSubmit}>
+
+{/* Amount input */}
         <input
           type="number"
           placeholder="Amount (€)"
@@ -62,6 +81,7 @@ function AddExpense({ addTransaction }) {
           onChange={(e) => setAmount(e.target.value)}
         />
 
+{/* Category dropdown */}
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
@@ -73,12 +93,7 @@ function AddExpense({ addTransaction }) {
           ))}
         </select>
 
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-
+{/* Optional description which removes category message */}
         <input
           type="text"
           placeholder="Description"
@@ -86,11 +101,13 @@ function AddExpense({ addTransaction }) {
           onChange={(e) => setDescription(e.target.value)}
         />
 
+{/* Submit button */}
         <button className="submit">
           Add Transaction
         </button>
       </form>
 
+{/* Navigation button to get back to home */}
       <button className="back-button" onClick={() => navigate("/")}>
       Back
       </button>
