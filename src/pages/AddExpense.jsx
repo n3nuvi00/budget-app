@@ -96,7 +96,7 @@ function AddExpense({ addTransaction }) {
 {/* Optional description which removes category message */}
         <input
           type="text"
-          placeholder="Description"
+          placeholder="Description - Optional"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
