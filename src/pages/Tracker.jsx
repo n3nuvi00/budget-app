@@ -26,7 +26,7 @@ return (
   <div className="tracker-page">
     <div className="tracker-box">
 
-      <h2 className="tracker-title">Goal Tracker</h2>
+      <h2 className="tracker-title">Budget goal tracker</h2>
 
       {/* XP BAR */}
       <div className="xp-section">
@@ -56,7 +56,7 @@ return (
 
       {/* INPUT */}
       <div className="goal-input-section">
-        <label>Set goal (€)</label>
+        <label>Set budget goal (€)</label>
 
         <input
           type="number"

@@ -78,7 +78,7 @@ export default function Home({ transactions, deleteTransaction, clearAllTransact
             className="goal-button"
             onClick={() => navigate("/tracker")}
           >
-            Here you can set goals
+            Set budget goal
           </button>
         ) : (
           <div 
@@ -100,7 +100,7 @@ export default function Home({ transactions, deleteTransaction, clearAllTransact
       </div>
       {/* Center */}
       <div className="main">
-        <h2>Current amount:</h2>
+        <h2>Current budget:</h2>
         <h1>{balance}€</h1>
         {balance > 0 && (
           <img 

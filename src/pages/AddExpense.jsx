@@ -12,7 +12,7 @@ function AddExpense({ addTransaction }) {
   const [description, setDescription] = useState("");
 
   const categories = {
-    expense: ["🍔Food", "🚗Transport", "📄Bills", "🎮Entertainment"],
+    expense: ["🍔Food", "🚗Transport", "📄Bills", "🎮Entertainment", "📦Other"],
     income: ["💰Salary", "🎁Gift", "📦Other"]
   };
 
